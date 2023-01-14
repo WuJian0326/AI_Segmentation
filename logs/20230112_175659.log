@@ -1,0 +1,11 @@
+2023-01-12 17:57:00,770 [train.py:59] INFO: learning rate : 0.0005
+2023-01-12 17:57:00,771 [train.py:60] INFO: batch size : 160
+2023-01-12 17:57:00,771 [train.py:61] INFO: num epoch : 100
+2023-01-12 17:57:00,771 [train.py:62] INFO: trainflow: 1
+2023-01-12 17:57:00,772 [train.py:105] INFO: ==========Start training=========
+2023-01-12 17:58:11,452 [trainer.py:185] INFO: Epoch : 1, Train_loss : nan, Mean_ioU: 0.19244499803926618
+2023-01-12 18:00:22,841 [trainer.py:217] INFO: Validation: Loss : 0.8887981176376343, mIoU : 0.21781381632503502
+2023-01-12 18:01:31,150 [trainer.py:185] INFO: Epoch : 2, Train_loss : nan, Mean_ioU: 0.2186189882149273
+2023-01-12 18:03:46,413 [trainer.py:217] INFO: Validation: Loss : 0.8878995180130005, mIoU : 0.21774533908934326
+2023-01-12 18:03:46,645 [utils.py:24] INFO: Saving ./checkpoint/ckpt_0.8879 ckp 
+2023-01-12 18:04:55,190 [trainer.py:185] INFO: Epoch : 3, Train_loss : nan, Mean_ioU: 0.2276813881678158

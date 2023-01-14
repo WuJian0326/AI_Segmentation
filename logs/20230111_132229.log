@@ -1,0 +1,28 @@
+2023-01-11 13:22:30,271 [train.py:59] INFO: learning rate : 0.0005
+2023-01-11 13:22:30,271 [train.py:60] INFO: batch size : 160
+2023-01-11 13:22:30,271 [train.py:61] INFO: num epoch : 100
+2023-01-11 13:22:30,271 [train.py:62] INFO: trainflow: 1
+2023-01-11 13:22:30,274 [train.py:105] INFO: ==========Start training=========
+2023-01-11 13:22:31,483 [utils.py:36] INFO: ==> load checkpoint from checkpoint/ckpt_latest.pth
+2023-01-11 13:22:31,590 [trainer.py:96] INFO: start 1673414551.5902646
+2023-01-11 13:23:49,535 [trainer.py:99] INFO: 77.94519281387329
+2023-01-11 13:23:49,536 [trainer.py:100] INFO: start train0
+2023-01-11 13:23:49,625 [trainer.py:103] INFO: start train
+2023-01-11 13:24:20,488 [trainer.py:99] INFO: 108.89859867095947
+2023-01-11 13:24:20,489 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:20,615 [trainer.py:103] INFO: start train
+2023-01-11 13:24:21,531 [trainer.py:99] INFO: 109.94137001037598
+2023-01-11 13:24:21,537 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:21,600 [trainer.py:103] INFO: start train
+2023-01-11 13:24:22,465 [trainer.py:99] INFO: 110.87551975250244
+2023-01-11 13:24:22,466 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:22,529 [trainer.py:103] INFO: start train
+2023-01-11 13:24:23,413 [trainer.py:99] INFO: 111.82266783714294
+2023-01-11 13:24:23,416 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:23,489 [trainer.py:103] INFO: start train
+2023-01-11 13:24:24,493 [trainer.py:99] INFO: 112.90307807922363
+2023-01-11 13:24:24,494 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:24,554 [trainer.py:103] INFO: start train
+2023-01-11 13:24:25,432 [trainer.py:99] INFO: 113.84208035469055
+2023-01-11 13:24:25,433 [trainer.py:100] INFO: start train0
+2023-01-11 13:24:25,504 [trainer.py:103] INFO: start train

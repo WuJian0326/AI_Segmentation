@@ -1,0 +1,6 @@
+2023-01-14 18:58:06,032 [train.py:60] INFO: learning rate : 0.0001
+2023-01-14 18:58:06,032 [train.py:61] INFO: batch size : 160
+2023-01-14 18:58:06,032 [train.py:62] INFO: num epoch : 100
+2023-01-14 18:58:06,032 [train.py:63] INFO: trainflow: 1
+2023-01-14 18:58:06,033 [train.py:106] INFO: ==========Start training=========
+2023-01-14 19:03:30,624 [trainer.py:193] INFO: Epoch : 1, Train_loss : 0.08058400452136993, Mean_ioU: 0.2860301994165458

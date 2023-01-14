@@ -1,0 +1,9 @@
+2023-01-09 17:37:19,472 [train.py:59] INFO: learning rate : 0.0005
+2023-01-09 17:37:19,472 [train.py:60] INFO: batch size : 160
+2023-01-09 17:37:19,472 [train.py:61] INFO: num epoch : 1
+2023-01-09 17:37:19,472 [train.py:62] INFO: trainflow: 3
+2023-01-09 17:37:19,476 [train.py:104] INFO: ==========Start training=========
+2023-01-09 17:37:20,805 [utils.py:36] INFO: ==> load checkpoint from checkpoint/ckpt_latest.pth
+2023-01-09 17:42:45,671 [trainer.py:124] INFO: Epoch : 1, Train_loss : 0.053348726068193485, Mean_ioU: 0.31452576322260517
+2023-01-09 17:42:45,676 [train.py:128] INFO: ==========finish train=========
+2023-01-09 17:42:45,679 [train.py:171] INFO: ==========finish work=========

@@ -1,0 +1,8 @@
+2023-01-11 13:34:36,378 [train.py:59] INFO: learning rate : 0.0005
+2023-01-11 13:34:36,378 [train.py:60] INFO: batch size : 160
+2023-01-11 13:34:36,378 [train.py:61] INFO: num epoch : 100
+2023-01-11 13:34:36,378 [train.py:62] INFO: trainflow: 1
+2023-01-11 13:34:36,390 [train.py:133] INFO: ==========Start predict=========
+2023-01-11 13:34:37,595 [utils.py:36] INFO: ==> load checkpoint from checkpoint/ckpt_latest.pth
+2023-01-11 14:32:44,197 [train.py:170] INFO: ==========finish predict=========
+2023-01-11 14:32:44,197 [train.py:181] INFO: ==========finish work=========

@@ -1,0 +1,10 @@
+2023-01-11 19:09:39,455 [train.py:59] INFO: learning rate : 0.0005
+2023-01-11 19:09:39,455 [train.py:60] INFO: batch size : 160
+2023-01-11 19:09:39,455 [train.py:61] INFO: num epoch : 100
+2023-01-11 19:09:39,455 [train.py:62] INFO: trainflow: 1
+2023-01-11 19:09:39,457 [train.py:133] INFO: ==========Start predict=========
+2023-01-11 19:09:40,614 [utils.py:36] INFO: ==> load checkpoint from checkpoint/ckpt_latest.pth
+2023-01-11 19:10:02,991 [train.py:181] INFO: Miou = 0.7804690680018562
+2023-01-11 19:10:02,991 [train.py:182] INFO: Miou class = [0, 0, 0, 0, 0]
+2023-01-11 19:10:02,991 [train.py:183] INFO: ==========finish predict=========
+2023-01-11 19:10:02,994 [train.py:194] INFO: ==========finish work=========
