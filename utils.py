@@ -41,37 +41,36 @@ def load_checkpoint(model:torch.nn.Module,path='checkpoint/ckpt_latest.pth'):
     return model
 
 def setup_logger():
-    l = logging.getLogger('l')
+    # Set up logger
+    logger = logging.getLogger('l')
 
-    log_dir: Path = Path(__file__).parent / "logs"
+    # Create workdir directory if not exists
+    workdir = Path(os.path.join(os.getcwd(), "workdir"))
+    workdir.mkdir(parents=True, exist_ok=True)
 
-    # create log directory if not exists
-    log_dir.mkdir(parents=True, exist_ok=True)
+    # Create experiment directory based on current timestamp
+    experiment_dir = workdir / time.strftime('%Y%m%d_%H%M%S')
+    experiment_dir.mkdir(parents=True, exist_ok=True)
 
-    # set log file name
-    log_file_name = f"{time.strftime('%Y%m%d_%H%M%S')}.log"
+    # Set log file name
+    log_file_name = f"{experiment_dir}/{time.strftime('%Y%m%d_%H%M%S')}.log"
 
-    l.setLevel(logging.DEBUG)
+    logger.setLevel(logging.DEBUG)
 
-    fileHandler = logging.FileHandler(
-        filename=log_dir / log_file_name,
-        mode='w'
-    )
+    fileHandler = logging.FileHandler(filename=log_file_name, mode='w')
     streamHandler = logging.StreamHandler()
 
-    allFormatter = logging.Formatter(
-        "%(asctime)s [%(filename)s:%(lineno)d] %(levelname)s: %(message)s"
-    )
+    formatter = logging.Formatter("%(asctime)s [%(filename)s:%(lineno)d] %(levelname)s: %(message)s")
 
-    fileHandler.setFormatter(allFormatter)
+    fileHandler.setFormatter(formatter)
     fileHandler.setLevel(logging.INFO)
 
-    streamHandler.setFormatter(allFormatter)
+    streamHandler.setFormatter(formatter)
     streamHandler.setLevel(logging.INFO)
 
-    l.addHandler(streamHandler)
-    l.addHandler(fileHandler)
+    logger.addHandler(streamHandler)
+    logger.addHandler(fileHandler)
 
-    return l
+    return logger
 
 l = setup_logger()

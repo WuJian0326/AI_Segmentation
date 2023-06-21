@@ -10,6 +10,7 @@ import cv2
 from joblib import Parallel, delayed
 from tqdm import trange, tqdm
 from time import time
+import h5py
 # def one_hot_encode(label_image, num_classes):
 #     label_image = label_image.astype(int)
 #     rows, cols = label_image.shape
@@ -46,8 +47,8 @@ def get_transform():
             A.OpticalDistortion(p=0.5, distort_limit=2, shift_limit=0.5)
         ], p=0.3),
         A.Normalize(
-            mean=[0.485, 0.456, 0.406, 0.424],
-            std=[0.229, 0.224, 0.225, 0.225],
+            mean=[0.485],
+            std=[0.229],
             max_pixel_value=255.0
         ),
         ToTensorV2(),
@@ -59,8 +60,8 @@ def get_vaild_transform():
     transform = A.Compose([
         A.Resize(224, 224),
         A.Normalize(
-            mean=[0.485, 0.456, 0.406, 0.424],
-            std=[0.229, 0.224, 0.225, 0.225],
+            mean=[0.485],
+            std=[0.229],
             max_pixel_value=255.0
             ),
         ToTensorV2(),
@@ -165,6 +166,72 @@ class NumpyDataLoader(Dataset):
             mask = augmentations["mask"]
 
         return image, mask
+
+class h5DataLoader(Dataset):
+    def __init__(
+        self,
+        base_dir=None,
+        split="train",
+        num=None,
+        transform=None,
+        ops_weak=None,
+        ops_strong=None,
+    ):
+        self._base_dir = base_dir
+        
+        
+        self.split = split
+        self.transform = transform
+        self.ops_weak = ops_weak
+        self.ops_strong = ops_strong
+
+        assert bool(ops_weak) == bool(
+            ops_strong
+        ), "For using CTAugment learned policies, provide both weak and strong batch augmentation policy"
+
+        if self.split == "train":
+            with open(self._base_dir + "/ACDC_train.list", "r") as f1:
+                self.sample_list = f1.readlines()
+            self.sample_list = [item.replace("\n", "") for item in self.sample_list]
+
+        elif self.split == "val":
+            with open(self._base_dir + "/ACDC_valid.list", "r") as f:
+                self.sample_list = f.readlines()
+            self.sample_list = [item.replace("\n", "") for item in self.sample_list]
+        if num is not None and self.split == "train":
+            self.sample_list = self.sample_list[:num]
+        print("total {} samples".format(len(self.sample_list)))
+
+    def __len__(self):
+        return len(self.sample_list)
+
+    def __getitem__(self, idx):
+        case = self.sample_list[idx]
+        # print(self._base_dir + "/data/test/{}.h5".format(case))
+        if self.split == "train":
+            h5f = h5py.File(self._base_dir + "/data/slices/{}.h5".format(case), "r")
+        else:
+            h5f = h5py.File(self._base_dir + "/data/slices/{}.h5".format(case), "r")
+        
+        image = h5f["image"][:]
+        label = h5f["label"][:]
+        # print(image.shape)
+
+        augmentations = self.transform(image=image, mask=label)
+        image = augmentations["image"]
+        label = augmentations["mask"]
+
+        # print('image',image.shape)
+        # print('label',label.shape)
+        sample = {"image": image, "label": label}
+        # if self.split == "train":
+            # if None not in (self.ops_weak, self.ops_strong):
+            #     sample = self.transform(sample, self.ops_weak, self.ops_strong)
+            # else:
+            #     sample = self.transform(sample)
+        sample["idx"] = idx
+
+        return sample
 
 # train_image_path = '/home/student/Desktop/3D_CT_Image/brats/images/'
 # train_mask_path = '/home/student/Desktop/3D_CT_Image/brats/annotations/'
